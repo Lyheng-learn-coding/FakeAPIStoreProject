@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <!-- font awesome cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <!-- icon for website  -->
+    <link rel="shortcut icon" href="../img/logoCart.png" type="image/x-icon" />
+    <!-- sweetalert2 cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- link swiper css  and js-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <title>Lyheng Store</title>
+
+    <style>
+      .swiper-pagination-bullet {
+        background-color: #ccc;
+      }
+
+      .swiper-pagination-bullet-active {
+          background-color: #fff;
+      }
+
+    </style>
+  </head>
+  <body class="bg-[#f0efeb]">
+    <nav  id = "navBarDesktop" 
+      class="bg-[#2f3e46] w-[100%] fixed top-0 left-0 py-4 px-5 flex md:justify-end items-center  shadow-[0_2px_5px_rgba(0,0,0,0.3)] z-10"
+    >
+
+      <button class="text-[1.2rem] text-white md:hidden" id="btnOpenNav">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <button class="text-[1.2rem] hidden text-white absolute left-[20px] " id="btnBackForFav">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+
+      <div class="divWrapBtns flex gap-3 ml-auto"  id = "saveCartsAndFavs">
+        <button class="btnCartFavorite text-[1.5rem] text-white relative mr-[5px]" >
+              <i class="fa-solid fa-heart"></i>
+          <span
+            class="proFavCount bg-orange-400 flex justify-center items-center text-white rounded-[50%] absolute top-[-5px] right-[-10px] size-6 text-[1rem] invisible"
+          ></span>
+        </button>
+        <button class=" btnCart text-[1.5rem] text-white relative">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span
+            class="proCount bg-orange-400 flex justify-center items-center text-white rounded-[50%] absolute top-[-5px] right-[-10px] size-6 text-[1rem] invisible"
+          ></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- desktop nav -->
+    <aside
+      class="hidden md:flex flex-col fixed md:left-[0] top-0 bg-[#2f3e46] w-[300px] h-[100%] p-[10px]  text-white transition-all duration-[0.3s] z-10 rounded-r-[10px] mb-[40px] "
+      id="asideNav"
+    >
+      <div class="p-[10px] mt-[20px]">
+        <a href="../html/index.html" class="flex gap-2.5 p-[10px]">
+          <img src="../img/logoCart.png" alt="" class="size-7" />
+          <span class="text-[1rem] text-[#84a98c]">Heng Shop</span>
+        </a>
+        <div class="flex flex-col mt-[20px] gap-1">
+          <button
+            class="btnAll text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] "
+          >
+            <i class="fa-solid fa-a"></i>  </i>All Products
+          </button> 
+          <button
+            class="btnMen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+          >
+            <i class="fa-solid fa-person"></i> Men Clothes
+          </button>
+          <button
+            class="btnWomen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+          >
+            <i class="fa-solid fa-person-dress"></i> Women Clothes
+          </button>
+          <button
+            class="btnJew text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+          >
+            <i class="fa-solid fa-gem"></i> Jewellery
+          </button>
+          <button
+            class="btnElec text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+          >
+            <i class="fa-solid fa-computer"></i> Eletronics
+          </button>
+
+          <p class="p-[10px] ">Don't know what to buy? <br>click this button 👇</p>
+        <button  class="btnRandom text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] mt-[-10px]">
+          <i class="fa-solid fa-shuffle"></i> Random</button>
+        </div>
+
+
+      </div>
+
+      <div
+        class="flex gap-[5px] items-center absolute bottom-0 pl-[25px] pb-[10px]"
+      >
+        <a href="https://github.com/Lyheng-learn-coding" target="_blank" class="text-2xl"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/oun-lyheng-86389a342/"  target="_blank"  class="text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+        <span>©Heng</span>
+      </div>
+    </aside>
+
+    <!-- mobile nav  -->
+    <aside
+      class="md:hidden flex flex-col fixed left-[-100%] top-0 bg-[#2f3e46] sm:w-[300px] h-[100%] p-[10px] text-white transition-all duration-[0.3s] z-10"
+      id="navbarMobile"
+    >
+      <button class="absolute right-[10px] text-[1.2rem]" id="btnRemoveNav">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="p-[20px] mt-[20px]">
+        <a href="#" class="flex gap-2.5 p-[10px]">
+          <img src="../img/logoCart.png" alt="" class="size-7" />
+          <span class="text-[1rem] text-[#84a98c]">Heng Shop</span>
+        </a>
+        <div class="flex flex-col mt-[20px] gap-4.5">
+          <button
+            class="btnAll text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+          >
+            <i class="fa-solid fa-font"></i> All Products
+          </button>
+          <button
+            class="btnMen text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+          >
+            <i class="fa-solid fa-person"></i> Men Clothes
+          </button>
+          <button
+            class="btnWomen text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+          >
+            <i class="fa-solid fa-person-dress"></i> Women Clothes
+          </button>
+          <button
+            class="btnJew text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+          >
+            <i class="fa-solid fa-gem"></i> Jewellery
+          </button>
+          <button
+            class="btnElec text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+          >
+            <i class="fa-solid fa-computer"></i> Eletronics
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="flex gap-[5px] items-center absolute bottom-0 pl-[25px] pb-[10px]"
+      >
+        <a href="https://github.com/Lyheng-learn-coding" target="_blank" class="text-2xl"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/oun-lyheng-86389a342/"  target="_blank"  class="text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+        <span>©Heng</span>
+      </div>
+    </aside>
+
+    <main class="md:ml-[300px] mt-[50px] mb-[70px]">
+      <div class="mb-[20px]"></div>
+      <div class="swiper mySwiper max-w-[80%] mt-[80px] h-[100%]"  >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="../img/manyShirts.jpg" alt="Image 1" class="w-[100%] h-[400px] object-cover"  />
+        </div>
+        <div class="swiper-slide">
+          <img src="../img/blackShirt.jpg" alt="Image 2" class="w-[100%] h-[400px] md:object-contain object-cover" />
+        </div>
+        <div class="swiper-slide">
+          <img src="../img/whiteShirts.jpg" alt="Image 3" class="w-[100%] h-[400px] object-cover"/>
+        </div>
+        <div class="swiper-slide">
+          <img src="../img/jewelry.jpg" alt="Image 4" class="w-[100%] h-[400px] object-cover"/>
+        </div>
+        <div class="swiper-slide">
+          <img src="../img/jewelryGirl.jpg" alt="Image 5" class="w-[100%] h-[400px] md:object-contain object-cover"/>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev  !w-[30px] !h-[30px] after:!text-[20px] !text-[#fff] !backdrop-blur-[20px] !rounded-[50%] !p-[20px] !bg-black/10"></div>
+      <div class="swiper-button-next  !w-[30px] !h-[30px]  after:!text-[20px] !text-[#fff] !backdrop-blur-[20px] !rounded-[50%] !p-[20px] !bg-black/10"></div>
+    </div>
+
+      <div
+        class="grid md:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-cols-[repeat(auto-fill,minmax(150px,1fr))] py-[20px] px-[50px] gap-[20px]"
+        id="productContainer"
+      >
+        <!-- <div
+          class="rounded-[10px] p-[10px] shadow-[2px_2px_5px_rgba(0,0,0,0.5)] overflow-x-hidden relative"
+        >
+        <button class="absolute right-[10px] backdrop-blur-[20px] rounded-[50%] p-[5px] w-[30px] h-[30px]" id="favButton">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+          <img
+            src="../img/logoCart.png"
+            alt=""
+            class="w-[100%] h-[200px] hover:scale-[1.1] transition-all duration-[0.3s]"
+          />
+          <div class="mt-[20px] flex flex-col gap-2.5">
+            <p class="text-[1rem] font-bold">Product name</p>
+            <p class="text-[1rem] font-[300]">category name</p>
+            <p class="text-[1rem]">$100</p>
+          </div>
+        </div> -->
+      </div>
+    </main>
+
+    <section class="w-[100%] p-[10px_20px]">
+      <h2 id = "h2-title" class="text-center text-[2rem] font-bold hidden">Your Favorite Products</h2>
+     <div
+        class="grid md:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-cols-[repeat(auto-fill,minmax(150px,1fr))] py-[20px] md:px-[50px] p-[10px] gap-[20px]"
+        id="favoriteContainer"
+      >
+        <!-- <div
+          class="rounded-[10px] p-[10px] shadow-[2px_2px_5px_rgba(0,0,0,0.5)] overflow-x-hidden relative"
+        >
+        <button class="absolute right-[10px] backdrop-blur-[20px] bg-[#e0e0e0]  rounded-[50%] p-[5px] w-[30px] h-[30px]" id="favButton">
+              <i class="fa-solid fa-xmark"></i>
+        </button>
+
+          <img
+            src="../img/logoCart.png"
+            alt=""
+            class="w-[100%] h-[200px] hover:scale-[1.1] transition-all duration-[0.3s]"
+          />
+          <div class="mt-[20px] flex flex-col gap-2.5">
+            <p class="text-[1rem] font-bold">Product name</p>
+            <p class="text-[1rem] font-[300]">category name</p>
+            <p class="text-[1rem]">$100</p>
+          </div>
+        </div> --> 
+
+    </section>
+
+    <!-- <footer
+      class="text-center py-5 text-sm text-white bg-[#3a4895] fixed bottom-0 w-[100%] flex justify-center items-center gap-2.5 mt-[30px]"
+    >
+      <p>© 2025 Heng Shop. All rights reserved.</p>
+
+      <div class="flex gap-[5px]">
+        <a href="#" class="text-2xl"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </footer> -->
+
+  </body>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   <script>
+      // swiper js
+      const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      });
+   </script>
+  <script src="script.js"></script>
+</html>

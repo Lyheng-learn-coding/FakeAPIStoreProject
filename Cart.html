@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="../img/logoCart.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Lyheng Store</title>
+  </head>
+  <body>
+    <section
+      class="bg-[#f0efeb] w-[100%] py-[30px] px-[50px] flex justify-center items-center h-[100vh] relative"
+    >
+      <div class="bg-white rounded-[10px] w-[100%] h-[100%]">
+        <div class="overflow-auto w-[100%]">
+          <table
+            id="cart-table"
+            class="border-collapse w-[100%] table-auto relative"
+          >
+            <thead>
+              <tr class="p-[10px]">
+                <th class="text-left p-[10px] text-[#999999] text-[1.2rem]">
+                  Item
+                </th>
+                <th></th>
+                <th class="p-[10px] text-[1.2rem] text-[#999999]">Price</th>
+                <th class="p-[10px] text-[1.2rem] text-[#999999]">Quantity</th>
+                <th class="p-[10px] text-[1.2rem] text-[#999999]">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Cart items will be inserted here by script.js -->
+            </tbody>
+          </table>
+          <div
+            id="cart-summary"
+            class="flex flex-col mt-[20px] md:absolute md:right-[50px] bottom-[50px] md:pr-[20px] p-[10px]"
+          >
+            <p class="text-[2rem] mb-[20px] text-[#84a98c]">
+              Total: <span class="showPrice"></span>
+            </p>
+            <div>
+              <button
+                id="btnCheckout"
+                class="py-[5px] px-[10px] bg-[#52796f] text-white w-[100%] hover:scale-[1.1] hover:bg-green-600 transition-all duration-[0.3s]"
+              >
+                checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
