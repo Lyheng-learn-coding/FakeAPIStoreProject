@@ -31,15 +31,20 @@
           background-color: #fff;
       }
 
-      /* @media screen and (max-width:320px) {
-        #navbarMobile {
-          width: 250px;
-        }
-      } */
+      #overlayDark {
+        display: none;
+      }
+      #overlayDark.showOverlayDark {
+         display: block;
+      }
 
     </style>
   </head>
   <body class="bg-[#f0efeb]">
+
+    <div class="fixed inset-0 bg-[rgba(0,0,0,0.5)] z-5" id = "overlayDark"></div>
+
+    <!-- desktop navbar -->
     <nav  id = "navBarDesktop" 
       class="bg-[#2f3e46] w-[100%] fixed top-0 left-0 py-4 px-5 flex md:justify-end items-center  shadow-[0_2px_5px_rgba(0,0,0,0.3)] z-10"
     >

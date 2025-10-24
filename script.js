@@ -338,6 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const favContainer = document.querySelector("#favoriteContainer");
   const btnCartFavorite = document.querySelector(".btnCartFavorite");
   const btnBackForFav = document.getElementById("btnBackForFav");
+  const overlayDark = document.getElementById("overlayDark");
 
   updateCartCount();
   updateFavCount();
@@ -399,6 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (navBarMobile.classList.contains("left-[-100%]")) {
           navBarMobile.classList.remove("left-[-100%]");
           navBarMobile.classList.add("left-[0]");
+          overlayDark.classList.add("showOverlayDark");
         }
       });
     }
@@ -408,6 +410,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (navBarMobile.classList.contains("left-[0]")) {
           navBarMobile.classList.remove("left-[0]");
           navBarMobile.classList.add("left-[-100%]");
+          overlayDark.classList.remove("showOverlayDark");
+        }
+      });
+    }
+
+    if (overlayDark && removeNav && navBarMobile) {
+      overlayDark.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (navBarMobile.classList.contains("left-[0]")) {
+          navBarMobile.classList.remove("left-[0]");
+          navBarMobile.classList.add("left-[-100%]");
+          overlayDark.classList.remove("showOverlayDark");
         }
       });
     }
