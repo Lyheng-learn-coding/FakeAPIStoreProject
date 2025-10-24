@@ -90,6 +90,24 @@ function updateFavCount() {
   });
 }
 
+function resetToMainView() {
+  const proContainer = document.getElementById("productContainer");
+  const favContainer = document.querySelector("#favoriteContainer");
+  const asideNav = document.getElementById("asideNav");
+  const h2Title = document.querySelector("#h2-title");
+  const swiper = document.querySelector(".swiper");
+  const btnOpenNav = document.querySelector("#btnOpenNav");
+  const btnBackForFav = document.getElementById("btnBackForFav");
+
+  if (proContainer) proContainer.classList.remove("hidden");
+  if (favContainer) favContainer.classList.add("hidden");
+  if (asideNav) asideNav.classList.add("md:flex");
+  if (h2Title) h2Title.classList.add("hidden");
+  if (swiper) swiper.style.display = "block";
+  if (btnBackForFav) btnBackForFav.classList.add("hidden");
+  if (btnOpenNav) btnOpenNav.classList.remove("hidden");
+}
+
 function displayFavPro(favProduct) {
   const proContainer = document.getElementById("productContainer");
   const favContainer = document.querySelector("#favoriteContainer");
@@ -107,7 +125,7 @@ function displayFavPro(favProduct) {
   if (swiper) swiper.style.display = "none";
   if (btnOpenNav) btnOpenNav.classList.add("hidden");
   if (btnBackForFav) btnBackForFav.classList.remove("hidden");
-  if (favContainer) favContainer.classList.add("grid");
+  if (favContainer) favContainer.classList.remove("hidden");
 
   if (!favContainer) return;
 
@@ -122,7 +140,7 @@ function displayFavPro(favProduct) {
    <div
           class="rounded-[10px] p-[10px] shadow-[2px_2px_5px_rgba(0,0,0,0.5)] overflow-x-hidden relative"
         >
-        <button class="absolute right-[10px]  flex justify-center items-center backdrop-blur-[20px] bg-[#e0e0e0]  rounded-[50%] p-[5px] w-[30px] h-[30px] btnRemoveFav" data-fav-proid="${p.id}">
+        <button class="absolute right-0 top-0  flex justify-center items-center backdrop-blur-[20px] bg-[#e0e0e0]  rounded-[50%] p-[5px] w-[30px] h-[30px] cursor-pointer btnRemoveFav" data-fav-proid="${p.id}">
               <i class="fa-solid fa-xmark"></i>
         </button>
 
@@ -179,7 +197,7 @@ function displayDetail(product, detailContainer) {
   if (!detailContainer) return;
   detailContainer.innerHTML = `
      <div
-        class="flex justify-center items-center flex-col md:flex-row gap-[60px] bg-[#ffffff] rounded-[20px] py-[20px] px-[20px] md:mt-[200px] mt-[100px]"
+        class="flex justify-center items-center flex-col md:flex-row gap-[60px] bg-[#ffffff] rounded-[20px] md:mt-[200px] mt-[100px]"
       >
         <div class="md:size-80 size-50">
           <img
@@ -189,36 +207,37 @@ function displayDetail(product, detailContainer) {
           />
         </div>
 
-        <div class="flex flex-col gap-[10px] max p-[10px]">
+        <div class="flex flex-col gap-[10px]  p-[10px] ">
           <h2 class="font-bold text-2xl max-w-prose text-[#84a98c]">${product.title}</h2>
           <h2 class="font-bold text-2xl text-[#84a98c]">$${product.price}</h2>
           <h2 class="text-[1.3rem] font-bold text-[#84a98c]">Description</h2>
           <p class="text-[1rem] max-w-prose text-justify">
               ${product.description}
           </p>
-          <div>
-            <div class="flex items-center">
+          <div class = "flex md:gap-[70px] flex-col md:flex-row ">
+            <div class="flex items-center flex-col md:flex-row ">
               <button
-                class="btnAddCart py-[10px] px-[20px] bg-[#52796f] text-white transform hover:scale-[1.1] transition-all duration-[0.3s]"
+                class="btnAddCart  w-[100%] md:w-auto py-[10px] px-[20px] bg-[#52796f] text-white transform hover:scale-[1.1] transition-all duration-[0.3s] cursor-pointer"
                 data-proid="${product.id}">
                 Add to cart
               </button>
-              <div class="flex items-center ml-[20px]">
+            </div>
+
+              <div class="flex items-center md:ml-[20px] mt-[20px] md:mt-[0px] justify-end md:justify-center w-[100%] md:w-0">
                 <button
                   id="btnDecre"
-                  class="py-[10px] px-[15px] text-[1rem] bg-[#52796f] rounded-[5px] text-white"
+                  class="py-[10px] px-[15px] text-[1rem] bg-[#52796f] rounded-[5px] text-white cursor-pointer"
                 >
                   <i class="fa-solid fa-minus"></i>
                 </button>
                 <span id="quantityItem" class="text-[1.2rem] mx-[15px]">1</span>
                 <button
                   id="btnIncre"
-                  class="py-[10px] px-[15px] text-[1rem] bg-[#52796f] rounded-[5px] text-white"
+                  class="py-[10px] px-[15px] text-[1rem] bg-[#52796f] rounded-[5px] text-white cursor-pointer"
                 >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -323,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   updateFavCount();
 
-  // btn back for for fav
+  // btn back for fav
   if (btnBackForFav) {
     const proContainer = document.getElementById("productContainer");
     const favContainer = document.querySelector("#favoriteContainer");
@@ -333,11 +352,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnBackForFav.addEventListener("click", (e) => {
       e.preventDefault();
-      if (proContainer) proContainer.classList.remove("hidden");
-      if (asideNav) asideNav.classList.add("md:flex");
-      if (h2Title) h2Title.classList.add("hidden");
-      if (swiper) swiper.style.display = "block";
-      if (favContainer) favContainer.classList.remove("grid");
+      resetToMainView();
+      fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((data) => displayAllPro(data, proContainer));
     });
   }
 
@@ -419,6 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
       buttons.forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
+          resetToMainView();
           fetch(url)
             .then((res) => res.json())
             .then((data) => {

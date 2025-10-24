@@ -31,6 +31,12 @@
           background-color: #fff;
       }
 
+      /* @media screen and (max-width:320px) {
+        #navbarMobile {
+          width: 250px;
+        }
+      } */
+
     </style>
   </head>
   <body class="bg-[#f0efeb]">
@@ -38,22 +44,22 @@
       class="bg-[#2f3e46] w-[100%] fixed top-0 left-0 py-4 px-5 flex md:justify-end items-center  shadow-[0_2px_5px_rgba(0,0,0,0.3)] z-10"
     >
 
-      <button class="text-[1.2rem] text-white md:hidden" id="btnOpenNav">
+      <button class="text-[1.2rem] text-white md:hidden cursor-pointer" id="btnOpenNav">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <button class="text-[1.2rem] hidden text-white absolute left-[20px] " id="btnBackForFav">
+      <button class="text-[1.2rem] hidden text-white absolute left-[20px] cursor-pointer " id="btnBackForFav">
         <i class="fa-solid fa-arrow-left"></i>
       </button>
 
       <div class="divWrapBtns flex gap-3 ml-auto"  id = "saveCartsAndFavs">
-        <button class="btnCartFavorite text-[1.5rem] text-white relative mr-[5px]" >
+        <button class="btnCartFavorite text-[1.5rem] text-white relative mr-[5px] cursor-pointer" >
               <i class="fa-solid fa-heart"></i>
           <span
             class="proFavCount bg-orange-400 flex justify-center items-center text-white rounded-[50%] absolute top-[-5px] right-[-10px] size-6 text-[1rem] invisible"
           ></span>
         </button>
-        <button class=" btnCart text-[1.5rem] text-white relative">
+        <button class=" btnCart text-[1.5rem] text-white relative cursor-pointer">
           <i class="fa-solid fa-cart-shopping"></i>
           <span
             class="proCount bg-orange-400 flex justify-center items-center text-white rounded-[50%] absolute top-[-5px] right-[-10px] size-6 text-[1rem] invisible"
@@ -67,44 +73,42 @@
       class="hidden md:flex flex-col fixed md:left-[0] top-0 bg-[#2f3e46] w-[300px] h-[100%] p-[10px]  text-white transition-all duration-[0.3s] z-10 rounded-r-[10px] mb-[40px] "
       id="asideNav"
     >
-      <div class="p-[10px] mt-[20px]">
+      <div class="p-[20px] mt-[20px]">
         <a href="../html/index.html" class="flex gap-2.5 p-[10px]">
           <img src="../img/logoCart.png" alt="" class="size-7" />
           <span class="text-[1rem] text-[#84a98c]">Heng Shop</span>
         </a>
         <div class="flex flex-col mt-[20px] gap-1">
           <button
-            class="btnAll text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] "
+            class="btnAll text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] cursor-pointer"
           >
             <i class="fa-solid fa-a"></i>  </i>All Products
           </button> 
           <button
-            class="btnMen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+            class="btnMen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] cursor-pointer"
           >
             <i class="fa-solid fa-person"></i> Men Clothes
           </button>
           <button
-            class="btnWomen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+            class="btnWomen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] cursor-pointer"
           >
             <i class="fa-solid fa-person-dress"></i> Women Clothes
           </button>
           <button
-            class="btnJew text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+            class="btnJew text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] cursor-pointer"
           >
             <i class="fa-solid fa-gem"></i> Jewellery
           </button>
           <button
-            class="btnElec text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]"
+            class="btnElec text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] cursor-pointer"
           >
             <i class="fa-solid fa-computer"></i> Eletronics
           </button>
 
           <p class="p-[10px] ">Don't know what to buy? <br>click this button 👇</p>
-        <button  class="btnRandom text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] mt-[-10px]">
+        <button  class="btnRandom text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] mt-[-10px] cursor-pointer">
           <i class="fa-solid fa-shuffle"></i> Random</button>
         </div>
-
-
       </div>
 
       <div
@@ -121,45 +125,51 @@
       class="md:hidden flex flex-col fixed left-[-100%] top-0 bg-[#2f3e46] sm:w-[300px] h-[100%] p-[10px] text-white transition-all duration-[0.3s] z-10"
       id="navbarMobile"
     >
-      <button class="absolute right-[10px] text-[1.2rem]" id="btnRemoveNav">
+      <button class="absolute right-[10px] text-[1.2rem] cursor-pointer" id="btnRemoveNav">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <div class="p-[20px] mt-[20px]">
+      <div class="p-[20px]  pt-[0px] mt-[20px]">
         <a href="#" class="flex gap-2.5 p-[10px]">
           <img src="../img/logoCart.png" alt="" class="size-7" />
           <span class="text-[1rem] text-[#84a98c]">Heng Shop</span>
         </a>
-        <div class="flex flex-col mt-[20px] gap-4.5">
+        <div class="flex flex-col mt-[20px] md:gap-4.5 gap-1.5">
           <button
-            class="btnAll text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+            class="btnAll text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]  cursor-pointer"
           >
             <i class="fa-solid fa-font"></i> All Products
           </button>
           <button
-            class="btnMen text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+            class="btnMen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]  cursor-pointer"
           >
             <i class="fa-solid fa-person"></i> Men Clothes
           </button>
           <button
-            class="btnWomen text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+            class="btnWomen text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]  cursor-pointer"
           >
             <i class="fa-solid fa-person-dress"></i> Women Clothes
           </button>
           <button
-            class="btnJew text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+            class="btnJew text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]  cursor-pointer"
           >
             <i class="fa-solid fa-gem"></i> Jewellery
           </button>
           <button
-            class="btnElec text-[1rem] text-left p-[10px] hover:bg-[#3e505a]"
+            class="btnElec text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62]  cursor-pointer"
           >
             <i class="fa-solid fa-computer"></i> Eletronics
           </button>
+
+          <p class="p-[10px] ">Don't know what to buy? <br>click this button 👇</p>
+           <button  class="btnRandom text-[1rem] text-left p-[10px] hover:bg-[#3e505a] hover:rounded-[10px] hover:text-[#798a62] mt-[-10px] cursor-pointer">
+          <i class="fa-solid fa-shuffle"></i> Random</button>
+          
+        </div>
         </div>
       </div>
 
       <div
-        class="flex gap-[5px] items-center absolute bottom-0 pl-[25px] pb-[10px]"
+        class="flex gap-[5px] items-center  pl-[25px] pb-[10px]"
       >
         <a href="https://github.com/Lyheng-learn-coding" target="_blank" class="text-2xl"><i class="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/oun-lyheng-86389a342/"  target="_blank"  class="text-2xl"><i class="fa-brands fa-linkedin"></i></a>
@@ -220,10 +230,9 @@
 
     <section class="w-[100%] p-[10px_20px]">
       <h2 id = "h2-title" class="text-center text-[2rem] font-bold hidden">Your Favorite Products</h2>
-     <div
-        class="grid md:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-cols-[repeat(auto-fill,minmax(150px,1fr))] py-[20px] md:px-[50px] p-[10px] gap-[20px]"
-        id="favoriteContainer"
-      >
+          <div
+             class="grid md:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-cols-[repeat(auto-fill,minmax(150px,1fr))] py-[20px] md:px-[50px] p-[10px] gap-[20px]" class="hidden"
+             id="favoriteContainer">
         <!-- <div
           class="rounded-[10px] p-[10px] shadow-[2px_2px_5px_rgba(0,0,0,0.5)] overflow-x-hidden relative"
         >

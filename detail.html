@@ -16,20 +16,22 @@
     <nav
       class="bg-[#2f3e46] w-[100%] fixed top-0 left-0 py-4 px-5 flex justify-between items-center shadow-[0_2px_5px_rgba(0,0,0,0.3)] z-10"
     >
-      <button class="text-[1.2rem] text-white" id="btnBack">
+      <button class="text-[1.2rem] text-white cursor-pointer" id="btnBack">
         <i class="fa-solid fa-arrow-left"></i>
       </button>
 
       <div class="divWrapBtns flex gap-3">
         <button
-          class="btnCartFavorite text-[1.5rem] text-white relative mr-[5px]"
+          class="btnCartFavorite text-[1.5rem] text-white relative mr-[5px] cursor-pointer"
         >
           <i class="fa-solid fa-heart"></i>
           <span
             class="proFavCount bg-orange-400 flex justify-center items-center text-white rounded-[50%] absolute top-[-5px] right-[-10px] size-6 text-[1rem] invisible"
           ></span>
         </button>
-        <button class="text-[1.5rem] text-white relative btnCart">
+        <button
+          class="text-[1.5rem] text-white relative btnCart cursor-pointer"
+        >
           <i class="fa-solid fa-cart-shopping"></i>
           <span
             class="proCount bg-orange-400 flex justify-center items-center text-white rounded-[50%] absolute top-[-5px] right-[-10px] size-6 text-[1rem] invisible"
@@ -38,7 +40,7 @@
       </div>
     </nav>
     <section
-      class="md:px-[100px] px-[30px] pb-[20px] h-[100%]"
+      class="md:px-[100px] px-[10px] pb-[20px] h-[100%]"
       id="detailContainer"
     >
       <!-- <div
