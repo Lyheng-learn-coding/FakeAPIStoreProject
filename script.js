@@ -361,7 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const clickedImage = e.target.closest(".imgClick");
       if (clickedImage) {
         const proID = clickedImage.dataset.proid;
-        window.location.href = `../html/detail.html?id=${proID}`;
+        window.location.href = `detail.html?id=${proID}`;
         return;
       }
     });
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cartButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "../html/Cart.html";
+      window.location.href = "Cart.html";
     });
   });
 
@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const clickedImage = e.target.closest(".imgClick");
       if (clickedImage) {
         const proID = clickedImage.dataset.proid;
-        window.location.href = `../html/detail.html?id=${proID}`;
+        window.location.href = `detail.html?id=${proID}`;
         return;
       }
 
@@ -487,7 +487,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnBack) {
       btnBack.addEventListener("click", (e) => {
         e.preventDefault();
-        window.location.href = "./index.html";
+        window.location.href = "index.html";
       });
     }
 
@@ -557,7 +557,7 @@ if (btnCheckout) {
       confirmButtonText: "Return to home page!",
     }).then((result) => {
       if (result.isConfirmed) {
-        window.location.href = ".index.html";
+        window.location.href = "index.html";
       }
     });
   });
