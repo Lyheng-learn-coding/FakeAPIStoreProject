@@ -498,18 +498,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const btnRandom = document.querySelector(".btnRandom");
+    const btnRandom = document.querySelectorAll(".btnRandom");
     if (btnRandom) {
-      btnRandom.addEventListener("click", (e) => {
-        e.preventDefault();
-        const randomId = Math.floor(Math.random() * 20) + 1;
+      btnRandom.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const randomId = Math.floor(Math.random() * 20) + 1;
 
-        fetch(`https://fakestoreapi.com/products/${randomId}`)
-          .then((res) => res.json())
-          .then((product) => {
-            console.log(product);
-            displayAllPro([product], proContainer);
-          });
+          fetch(`https://fakestoreapi.com/products/${randomId}`)
+            .then((res) => res.json())
+            .then((product) => {
+              console.log(product);
+              displayAllPro([product], proContainer);
+            });
+        });
       });
     }
   }
